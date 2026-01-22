@@ -69,5 +69,4 @@ def mc_example_driver():
 
 if __name__ == '__main__':
     # run our example
-    example_driver()
     mc_example_driver()
