@@ -15,7 +15,7 @@ from typing import List, Tuple
 ========================================================================
 """
 
-ID = 123456789  # TODO: change it to your personal ID
+ID = 209814433  # TODO: change it to your personal ID
 random_gen = RandomState(seed=ID)
 print_formatted_values = False
 
@@ -39,7 +39,7 @@ def accuracy(y: np.array, y_pred: np.array)-> float:
     assert y.ndim == 1
     accuracy_val = None
     # ====== YOUR CODE: ======
-    raise NotImplementedError
+    accuracy_val = np.mean(y == y_pred)
     # ========================
 
     return accuracy_val
@@ -61,7 +61,11 @@ def l2_dist(x1: np.array, x2: np.array):
     dists = None
 
     # ====== YOUR CODE: ======
-    raise NotImplementedError
+    x1_squared = np.sum(x1**2, axis=1, keepdims=True)
+    x2_squared = np.sum(x2**2, axis=1).reshape(1,-1)
+    x1_x2 = x1 @ x2.T
+
+    dists = np.sqrt(x1_squared + x2_squared - 2 * x1_x2)
     # ========================
 
     return dists
