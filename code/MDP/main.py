@@ -60,7 +60,7 @@ def mc_example_driver():
               ['UP', None, 'UP', None],
               ['UP', 'UP', 'UP', 'UP']]
     sim = Simulator()
-    reward_matrix = mc_algorithm(sim=sim, num_episodes=100, gamma=0.9, policy=policy)
+    reward_matrix = mc_algorithm(sim=sim, num_episodes=1000, gamma=0.9, policy=policy)
 
     print("Reward Matrix:")
     print(reward_matrix)
@@ -68,5 +68,6 @@ def mc_example_driver():
 
 
 if __name__ == '__main__':
-    # run our example
+    # run our
+    example_driver()
     mc_example_driver()

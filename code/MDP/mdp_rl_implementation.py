@@ -188,9 +188,9 @@ def mc_algorithm(
     V = None
 
     # ====== YOUR CODE: ======
-    V = [[0 for _ in range(num_cols)] for _ in range(num_rows)]
-    returns_sum = [[0 for _ in range(num_cols)] for _ in range(num_rows)]
-    returns_count = [[0 for _ in range(num_cols)] for _ in range(num_rows)]
+    V = np.zeros((num_rows, num_cols))
+    returns_sum = np.zeros((num_rows, num_cols))
+    returns_count = np.zeros((num_rows, num_cols))
 
     for episode in sim.replay(num_episodes=num_episodes):
         states = []
@@ -208,11 +208,11 @@ def mc_algorithm(
             G = gamma * G + reward
 
             if state not in states[:t]:
-                returns_sum[state[0]][state[1]] += G
-                returns_count[state[0]][state[1]] += 1
-                V[state[0]][state[1]] = returns_sum[state[0]][state[1]] / returns_count[state[0]][state[1]]
+                returns_sum[state] += G
+                returns_count[state] += 1
+                V[state] = returns_sum[state] / returns_count[state]
 
-    V[1][1] = None
+    V[1,1] = None
 
     # =========================
 

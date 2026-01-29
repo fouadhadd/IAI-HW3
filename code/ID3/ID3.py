@@ -127,7 +127,7 @@ class ID3:
 
                 gain, true_rows, true_labels, false_rows, false_labels = self.partition(rows, labels, question, current_uncertainty)
 
-                if gain > best_gain:
+                if gain >= best_gain:
                     best_gain = gain
                     best_question = question
                     best_false_rows = false_rows
